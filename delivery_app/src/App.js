@@ -1,7 +1,9 @@
+import SizeDrop from "./components/SizeDrop";
 import SearchBar from "./components/SearchBar";
 import Dropdown from "./components/Dropdown";
 import ActualDate from "./components/ActualDate";
 import BuildCards from "./components/BuildCards";
+import InfoBar from "./components/InfoBar";
 import React, { useState } from 'react';
 
 export default function App() {
@@ -114,6 +116,12 @@ export default function App() {
   
       setInputFilter(value);
     }
+
+
+   /*    const handleSubmit = (term) =>{
+           console.log(term);
+           return term;
+      }; */
   
 /*     function MySelect() {
       return (
@@ -134,8 +142,7 @@ export default function App() {
       //console.log('sizeMatch ', sizeMatch)
       const fuzzySearchMatch = item.curier.indexOf(inputFilter) !== -1;
       //return curierMatch;
-      console.log("is ", sizeMatch || curierMatch || deiveryMethodMatch);
-      return sizeMatch && curierMatch && deiveryMethodMatch && fuzzySearchMatch
+      return sizeMatch && curierMatch && deiveryMethodMatch  && fuzzySearchMatch 
       //return sizeMatch && fuzzySearchMatch;
       // return sizeMatch;
     }
@@ -143,37 +150,40 @@ export default function App() {
     const returnfilter = data.filter(item => cardFilter(item)) 
     return (
       <>
-      < ActualDate />
-        { <select name="curier" onChange={handleOnChangeCurier}>
-          <option value={Curier.ALL}>ALL</option>
-          <option value={Curier.FOX}>Foxpost</option>
-          <option value={Curier.ROYAL}>Royal</option>
-          <option value={Curier.DPD}>DPD</option>
-          <option value={Curier.MPL}>MPL</option>
-
-        </select> }
+          < ActualDate />
+      {/* //<SizeDrop onChange={handleSubmit}/> */}
+          <select name="curier" onChange={handleOnChangeCurier}>
+            <option value={Curier.ALL}>ALL</option>
+            <option value={Curier.FOX}>Foxpost</option>
+            <option value={Curier.ROYAL}>Royal</option>
+            <option value={Curier.DPD}>DPD</option>
+            <option value={Curier.MPL}>MPL</option>
+        </select> 
         
-        { <select name="size" onChange={handleOnChangeSize}>
+         <select name="size" onChange={handleOnChangeSize}>
           <option value={Size.ALL}>ALL</option>
           <option value={Size.SMALL}>Small</option>
           <option value={Size.MEDIUM}>Medium</option>
           <option value={Size.BIG}>Big</option>
-        </select> }
+        </select> 
 
-        { <select name="method" onChange={handleOnChangeDelyveryMethod}>
+         <select name="method" onChange={handleOnChangeDelyveryMethod}>
         <option value={DeliveryMethod.ALL}>ALL</option>
           <option value={DeliveryMethod.HPUP}>HPUP</option>
           <option value={DeliveryMethod.STORE}>áruházi</option>
           <option value={DeliveryMethod.ONEHOUR}>1órás</option>
           <option value={DeliveryMethod.TODAY}>Aznap</option>
           <option value={DeliveryMethod.ONEDAY}>1nap</option>
-        </select> }
+        </select> 
   
         <input type='text' name='search' onChange={handleInputChange} />
-        
+
+      {/*   <SearchBar onSubmit={handleSubmit}/> */}
         <br></br>
         <br></br>
-  
+        <InfoBar />
+        <br></br>
+        <br></br>
         <div>
           <BuildCards item={ returnfilter } />
         </div>

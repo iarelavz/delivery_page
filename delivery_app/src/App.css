@@ -1,0 +1,23 @@
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 20px;
+    background-color: aliceblue;
+    padding:20px;
+}
+
+.card{
+    max-height: 200px;
+    max-width: 300px;
+    background-color: white;
+    border: solid 1px    white;
+    border-radius: 2%;
+    padding: 20px;
+    box-shadow: 4px 2px darkcyan;
+    font-size: 0.8rem;
+   }
+
+   .card > *{
+    margin:5px;
+   }

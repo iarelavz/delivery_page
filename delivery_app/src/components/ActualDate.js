@@ -1,9 +1,9 @@
 function ActualDate(){
-    let m = new Date();
+    let today = new Date();
     let dateString =
-        m.getUTCFullYear() + "." +
-        ("0" + (m.getUTCMonth()+1)).slice(-2) + "." +
-        ("0" + m.getUTCDate()).slice(-2) + "."
+        today.getUTCFullYear() + "." +
+        ("0" + (today.getUTCMonth()+1)).slice(-2) + "." +
+        ("0" + today.getUTCDate()).slice(-2) + "."
      return (
      <div>
          <div>{dateString}</div>

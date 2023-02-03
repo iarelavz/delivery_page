@@ -1,55 +1,76 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import TabNavItem from "./AllTabs/TabNawItem";
+import TabContent from "./AllTabs/TabContent"; 
 
 const Tabs = () => {
+  const [activeTab, setActiveTab] = useState("tab1");
+  const DeliveryMethod = {
+    HOME: 'Házhozszállítás',
+    STORE: 'Hagyományos áruházi átvétel',
+    ONEHOUR: '1 órás áruházi átvétel',
+    TODAY: 'Aznapi kiszállítás', //TODO BP területén
+    ONEDAY: '1 munkanapos kiszállítás',
+    ALL: 'all',
+    PUP: 'Pick up Point'
+   }
+   const Size = {
+       SMALL: 'Kisméretű csomag',
+       MEDIUM: 'Közepes méretű csomag',
+       BIG: 'Nagyméretű csomag',
+       ALL: 'Bármilyen méretű csomag',
+   }
+   
+   const Curier = {
+       ROYAL: 'Royal',
+       FOX: 'Foxpost',
+       MPL: 'MPL',
+       DPD: 'DPD',
+       ALL: 'Mindegyik',
+       NONE: 'Nincs hozzárdendelt futárszolgálat'
+   }
 
-    const [currentTab, setCurrentTab] = useState('1');
-    const tabs = [
-        {
-            id: 1,
-            tabTitle: 'Tab 1',
-            title: 'Title 1',
-            content: 'Las tabs se generan automáticamente a partir de un array de objetos, el cual tiene las propiedades: id, tabTitle, title y content.'
-        },
-        {
-            id: 2,
-            tabTitle: 'Tab 2',
-            title: 'Title 2',
-            content: 'Contenido de tab 2.'
-        },
-        {
-            id: 3,
-            tabTitle: 'Tab 3',
-            title: 'Title 3',
-            content: 'Contenido de tab 3.'
-        },
-        {
-            id: 4,
-            tabTitle: 'Tab 4',
-            title: 'Title 4',
-            content: 'Contenido de tab 4.'
-        }
-    ];
+   const Supply = {
+      CAC: 'Külső raktáron',
+      CAR: 'Raktáron',
+      STORE: 'Bolti készleten',
+      ALL: 'Mindegyik'
 
-    const handleTabClick = (e) => {
-        setCurrentTab(e.target.id);
-    }
-
-    return (
-        <div className='container'>
-            <div className='tabs'>
-                {tabs.map((tab, i) =>
-                    <button key={i} id={tab.id} disabled={currentTab === `${tab.id}`} onClick={(handleTabClick)}>{tab.tabTitle}</button>
-                )}
-            </div>
-            <div className='content'>
-                {tabs.map((tab, i) =>
-                    <div key={i}>
-                        {currentTab === `${tab.id}` && <div><p className='title'>{tab.title}</p><p>{tab.content}</p></div>}
-                    </div>
-                )}
-            </div>
-        </div>
-    );
-}
-
+   }
+  return (
+    <div className="Tabs">
+      <ul className="nav">
+        <TabNavItem title="Tab 1" id="tab1" activeTab={activeTab} setActiveTab={setActiveTab}/>
+        <TabNavItem title="Tab 2" id="tab2" activeTab={activeTab} setActiveTab={setActiveTab}/>
+        <TabNavItem title="Tab 3" id="tab3" activeTab={activeTab} setActiveTab={setActiveTab}/>
+      </ul>
+ 
+      <div className="outlet">
+        <TabContent id="tab1" activeTab={activeTab}>
+        <select name="curier">
+            <option value={Curier.ALL}>Futárszolgálat</option>
+            <option value={Curier.ALL}>ALL</option>
+            <option value={Curier.FOX}>Foxpost</option>
+            <option value={Curier.ROYAL}>Royal</option>
+            <option value={Curier.DPD}>DPD</option>
+            <option value={Curier.MPL}>MPL</option>
+        </select> 
+        </TabContent>
+        <TabContent id="tab2" activeTab={activeTab}>
+        <select name="curier">
+            <option value={Curier.ALL}>Futárszolgálat</option>
+            <option value={Curier.ALL}>ALL</option>
+            <option value={Curier.FOX}>Foxpost</option>
+            <option value={Curier.ROYAL}>Royal</option>
+            <option value={Curier.DPD}>DPD</option>
+            <option value={Curier.MPL}>MPL</option>
+        </select> 
+        </TabContent>
+        <TabContent id="tab3" activeTab={activeTab}>
+          <p>Tab 3 works!</p>
+        </TabContent>
+      </div>
+    </div>
+  );
+};
+ 
 export default Tabs;

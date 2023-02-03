@@ -162,7 +162,6 @@ export default function App() {
       console.log(name, value);
   
       setCurierFilter(value);
-      return <InfoBar infoCall="Fox a jó"/>
     }
 
     function handleOnChangeDelyveryMethod(event) {
@@ -212,9 +211,9 @@ export default function App() {
     const returnFilter = data.filter(item => cardFilter(item)) 
     return (
       <>
+      
           < ActualDate />
       {/* //<SizeDrop onChange={handleSubmit}/> */}
-
       <select name="method" onChange={handleOnChangeDelyveryMethod}>
          <option value={DeliveryMethod.ALL}>Kiszállítási mód</option>
           <option value={DeliveryMethod.ALL}>{DeliveryMethod.ALL}</option>
@@ -226,8 +225,7 @@ export default function App() {
           <option value={DeliveryMethod.ONEDAY}>{DeliveryMethod.ONEDAY}</option>
         </select>
 
-          
-        
+           
          <select name="size" onChange={handleOnChangeSize}>
          <option value={Size.ALL}>Csomagméret</option>
           <option value={Size.ALL}>ALL</option>
@@ -235,7 +233,6 @@ export default function App() {
           <option value={Size.MEDIUM}>Medium</option>
           <option value={Size.BIG}>Big</option>
         </select> 
-
         <select name="curier" onChange={handleOnChangeCurier}>
             <option value={Curier.ALL}>Futárszolgálat</option>
             <option value={Curier.ALL}>ALL</option>
@@ -244,9 +241,9 @@ export default function App() {
             <option value={Curier.DPD}>DPD</option>
             <option value={Curier.MPL}>MPL</option>
         </select>    
-  
-        <input type='text' name='search' onChange={handleInputChange} />
 
+        <input type='text' name='search' onChange={handleInputChange} />
+  
       {/*   <SearchBar onSubmit={handleSubmit}/> */}
         <br></br>
         <br></br>
@@ -256,6 +253,7 @@ export default function App() {
         <div className="card-container">
           <BuildCards item={ returnFilter } />
         </div>
+        <Tabs />
       </>
     )
   }

@@ -6,8 +6,8 @@ import SearchBar from "./components/SearchBar";
 import Dropdown from "./components/Dropdown"; */
 import BuildCards from "./BuildCards";
 
-const Tabs = () => {
-  const [activeTab, setActiveTab] = useState("tab1");
+function Tabs() {
+  
   const DeliveryMethod = {
     HOME: 'Házhozszállítás',
     STORE: 'Hagyományos áruházi átvétel',
@@ -130,52 +130,44 @@ const Tabs = () => {
       {
           date: new Date('2023-04-05'),
           deliveryMethod: DeliveryMethod.TODAY,
-          size: Size.All,
+          size: Size.SMALL,
           curier: Curier.NONE, 
           supply: Supply.STORE,
       },
       {
           date: new Date('2023-04-03T15:00'), 
           deliveryMethod: DeliveryMethod.ONEDAY,
-          size: Size.All,
+          size: Size.MEDIUM,
           curier: Curier.NONE, 
           supply: Supply.STORE,
       },
    ]
 
-  const [sizeFilter, setSizeFilter] = useState(Size.ALL);
-  const [curierFilter, setCurierFilter] = useState(Curier.ALL);
-  const [deliveryMethodFilter, setDeliveryMethodFilter] = useState(DeliveryMethod.ALL);
+    const [activeTab, setActiveTab] = useState("tab1");
+    const [sizeFilter, setSizeFilter] = useState(Size.ALL);
+    const [curierFilter, setCurierFilter] = useState(Curier.ALL);
+    const [deliveryMethodFilter, setDeliveryMethodFilter] = useState(DeliveryMethod.ALL);
+    const [inputFilter, setInputFilter] = useState('');
 
-  const [inputFilter, setInputFilter] = useState('');
+    function handleOnChangeSize(event) {
+        const { name, value } = event.target
+        setSizeFilter(value);
+    }
 
-  function handleOnChangeSize(event) {
-    const { name, value } = event.target
-    console.log(name, value);
+    function handleOnChangeCurier(event) {
+        const { name, value } = event.target
+        setCurierFilter(value);
+    }
 
-    setSizeFilter(value);
-  }
+    function handleOnChangeDelyveryMethod(event) {
+        const { name, value } = event.target
+        setDeliveryMethodFilter(value);
+    }
 
-  function handleOnChangeCurier(event) {
-    const { name, value } = event.target
-    console.log(name, value);
-
-    setCurierFilter(value);
-  }
-
-  function handleOnChangeDelyveryMethod(event) {
-    const { name, value } = event.target
-    console.log(name, value);
-
-    setDeliveryMethodFilter(value);
-  }
-
-  function handleInputChange(event) {
-    const { name, value } = event.target
-    console.log(name, value);
-
-    setInputFilter(value);
-  }
+    function handleInputChange(event) {
+        const { name, value } = event.target
+        setInputFilter(value);
+    }
 
 
  /*    const handleSubmit = (term) =>{
@@ -209,59 +201,55 @@ const Tabs = () => {
 
   const returnFilter = data.filter(item => cardFilter(item)) 
   return (
-    <>
-  
+    <div className="tabcard-container">
     <div className="Tabs">
-    <input ClassId="searcbar" type='text' name='search' onChange={handleInputChange} />
-      <ul className="nav">
-        <TabNavItem title="Szállítási mód" id="tab1" activeTab={activeTab} setActiveTab={setActiveTab}/>
-        <TabNavItem title="Csomag mérete" id="tab2" activeTab={activeTab} setActiveTab={setActiveTab}/>
-        <TabNavItem title="Futárszolgálat" id="tab3" activeTab={activeTab} setActiveTab={setActiveTab}/>
-      </ul>
- 
-      <div className="outlet">
-        <TabContent id="tab1" activeTab={activeTab}>
-        <select name="method" onChange={handleOnChangeDelyveryMethod}>
-         <option value={DeliveryMethod.ALL}>Kiszállítási mód</option>
-          <option value={DeliveryMethod.ALL}>{DeliveryMethod.ALL}</option>
-          <option value={DeliveryMethod.HOME}>{DeliveryMethod.HOME}</option>
-          <option value={DeliveryMethod.PUP}>{DeliveryMethod.PUP}</option>
-          <option value={DeliveryMethod.STORE}>{DeliveryMethod.STORE}</option>
-          <option value={DeliveryMethod.ONEHOUR}>{DeliveryMethod.ONEHOUR}</option>
-          <option value={DeliveryMethod.TODAY}>{DeliveryMethod.TODAY}</option>
-          <option value={DeliveryMethod.ONEDAY}>{DeliveryMethod.ONEDAY}</option>
-        </select>
-        <div className="infotext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet turpis diam. Phasellus consequat turpis nec ante elementum, in bibendum massa consectetur.</div>
-        </TabContent>
-        <TabContent id="tab2" activeTab={activeTab}>
-        <select name="size" onChange={handleOnChangeSize}>
-         <option value={Size.ALL}>Csomagméret</option>
-          <option value={Size.ALL}>ALL</option>
-          <option value={Size.SMALL}>Small</option>
-          <option value={Size.MEDIUM}>Medium</option>
-          <option value={Size.BIG}>Big</option>
-        </select> 
-        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet turpis diam. Phasellus consequat turpis nec ante elementum, in bibendum massa consectetur.</div>
- 
-        </TabContent>
-        <TabContent id="tab3" activeTab={activeTab}>
-        <select name="curier" onChange={handleOnChangeCurier}>
-            <option value={Curier.ALL}>Futárszolgálat</option>
-            <option value={Curier.ALL}>ALL</option>
-            <option value={Curier.FOX}>Foxpost</option>
-            <option value={Curier.ROYAL}>Royal</option>
-            <option value={Curier.DPD}>DPD</option>
-            <option value={Curier.MPL}>MPL</option>
-        </select>  
-                  <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet turpis diam. Phasellus consequat turpis nec ante elementum, in bibendum massa consectetur.</div>
-
-        </TabContent>
-      </div>
-    </div>
-        <div className="card-container">
-          <BuildCards item={ returnFilter } />
+        <input ClassId="searcbar" type='text' name='search' onChange={handleInputChange} />
+        <ul className="nav">
+            <TabNavItem title="Szállítási mód" id="tab1" activeTab={activeTab} setActiveTab={setActiveTab}/>
+            <TabNavItem title="Csomag mérete" id="tab2" activeTab={activeTab} setActiveTab={setActiveTab}/>
+            <TabNavItem title="Futárszolgálat" id="tab3" activeTab={activeTab} setActiveTab={setActiveTab}/>
+        </ul>
+        <div className="outlet">
+            <TabContent id="tab1" activeTab={activeTab}>
+                <div className="infotext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet turpis diam. Phasellus consequat turpis nec ante elementum, in bibendum massa consectetur.</div>
+                <select className="dropdown" name="method" onChange={handleOnChangeDelyveryMethod}>
+                    <option value={DeliveryMethod.ALL}>Kiszállítási mód</option>
+                    <option value={DeliveryMethod.ALL}>{DeliveryMethod.ALL}</option>
+                    <option value={DeliveryMethod.HOME}>{DeliveryMethod.HOME}</option>
+                    <option value={DeliveryMethod.PUP}>{DeliveryMethod.PUP}</option>
+                    <option value={DeliveryMethod.STORE}>{DeliveryMethod.STORE}</option>
+                    <option value={DeliveryMethod.ONEHOUR}>{DeliveryMethod.ONEHOUR}</option>
+                    <option value={DeliveryMethod.TODAY}>{DeliveryMethod.TODAY}</option>
+                    <option value={DeliveryMethod.ONEDAY}>{DeliveryMethod.ONEDAY}</option>
+                </select>
+            </TabContent>
+            <TabContent id="tab2" activeTab={activeTab}>
+                <div className="infotext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet turpis diam. Phasellus consequat turpis nec ante elementum, in bibendum massa consectetur.</div>
+                <select name="size" onChange={handleOnChangeSize}>
+                    <option value={Size.ALL}>Csomagméret</option>
+                    <option value={Size.ALL}>ALL</option>
+                    <option value={Size.SMALL}>Small</option>
+                    <option value={Size.MEDIUM}>Medium</option>
+                    <option value={Size.BIG}>Big</option>
+                </select>    
+            </TabContent>
+            <TabContent id="tab3" activeTab={activeTab}>
+                <div className="infotext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet turpis diam. Phasellus consequat turpis nec ante elementum, in bibendum massa consectetur.</div>
+                <select name="curier" onChange={handleOnChangeCurier}>
+                    <option value={Curier.ALL}>Futárszolgálat</option>
+                    <option value={Curier.ALL}>ALL</option>
+                    <option value={Curier.FOX}>Foxpost</option>
+                    <option value={Curier.ROYAL}>Royal</option>
+                    <option value={Curier.DPD}>DPD</option>
+                    <option value={Curier.MPL}>MPL</option>
+                </select>  
+            </TabContent>
         </div>
-    </>
+        </div>
+        <div className="card-container">
+            <BuildCards item={ returnFilter } />
+        </div>
+    </div>
   );
 };
  

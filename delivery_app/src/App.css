@@ -1,22 +1,27 @@
 
+
+:root {
+    --backgroundColor: lightgray;
+  }
 body{
-    background-color: aliceblue;
+    background-color: var(--backgroundColor);
+    font-family: 'Roboto', sans-serif;
 }
 
-
-   select:active{
-    padding-top: 5px;    
-    border-top: 3px solid black;
+   .tabcard-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
    }
 
    .Tabs {
     width: 80%;
     height: auto;
     min-height: 200px;
-    background: #053742;
+    background: white;
     margin: 0.2rem auto 0.2rem;
     padding: 2rem 1rem;
-    color: #E8F0F2;
+    color: black;
     border-radius: 1%;
     @media (max-width: 769px) {
       padding: 2rem 0;
@@ -80,14 +85,31 @@ body{
     justify-content: center;
     align-items: center;
   }
+  
+  select {
+    width: 100%;
+    min-width: 15ch;
+    max-width: 30ch;
+    border: 1px solid var(--select-border);
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    font-size: 0.9rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #fff;
+    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+    margin-top: 1.5rem;
+  }
+  
   /* Card Styles */
   .card-container {
     display: grid;
+    width: 80%;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
-    margin: 1rem;
-    background-color: aliceblue;
-    padding:20px;
+    margin: 2rem auto 0.2rem;
+    background-color: var(--backgroundColor);
+    
 }
 
 .card{
@@ -97,8 +119,11 @@ body{
     border: solid 1px    white;
     border-radius: 2%;
     padding: 20px;
-    box-shadow: 4px 2px darkcyan;
     font-size: 0.8rem;
+   }
+
+   .card:hover{
+    box-shadow: 3.9px 7.8px 7.8px hsl(0deg 0% 0% / 0.38);
    }
 
    .card > *{

@@ -1,4 +1,4 @@
-function ActualDate(){
+function ActualDate(){  //Outputs the Actual date
     let today = new Date();
     let dateString =
         today.getUTCFullYear() + "." +

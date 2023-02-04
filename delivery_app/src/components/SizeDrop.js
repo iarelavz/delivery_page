@@ -23,7 +23,7 @@ function SizeDrop({ onChange }){
 
     return (
        
-        <select name="size" onChange={handleOnChangeSize}>
+        <select  placeholder="Keresés..." name="size" onChange={handleOnChangeSize}>
             <option value={Size.ALL}>ALL</option>
             <option value={Size.SMALL}>Small</option>
             <option value={Size.MEDIUM}>Medium</option>

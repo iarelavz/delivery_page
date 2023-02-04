@@ -35,7 +35,7 @@
         display: flex;
         flex-direction: row
     }
-    input {
+    .searchbar{
         margin-bottom: 2rem;
         border-radius: 10px;
         width: 100%;
@@ -65,6 +65,7 @@
         box-shadow: 3.9px 7.8px 7.8px hsl(0deg 0% 0% / 0.38);
         @media (max-width: 769px) {
         padding: 2rem 0;
+        
         }
     }
    
@@ -79,12 +80,17 @@
     box-shadow: 7.8px 15.5px 15.5px hsl(0deg 0% 0% / 0.26);
     border-radius: 10px;
     padding-left: 0px;
-    @media (max-width: 768px) {
+    
+  }
+  @media only screen and (max-width: 600px) {
+    ul.nav{
+      font-size: 12px;
       width: 60%;
-      font-size: 10px;
+    }
+    .infotext{
+      font-size: 12px;
     }
   }
-   
   ul.nav li {
     width: 50%;
     padding: 1rem;

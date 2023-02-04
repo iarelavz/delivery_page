@@ -143,13 +143,14 @@ function Tabs() {
           supply: Supply.STORE,
       },
    ]
-
+   //states for input and tabs
     const [activeTab, setActiveTab] = useState("tab1");
     const [sizeFilter, setSizeFilter] = useState(Size.ALL);
     const [curierFilter, setCurierFilter] = useState(Curier.ALL);
     const [deliveryMethodFilter, setDeliveryMethodFilter] = useState(DeliveryMethod.ALL);
     const [inputFilter, setInputFilter] = useState('');
 
+    //handles for inputs
     function handleOnChangeSize(event) {
         const { name, value } = event.target
         setSizeFilter(value);
@@ -249,7 +250,7 @@ function Tabs() {
             </div>
         </div>
         <div className="card-container">
-            <BuildCards item={ returnFilter } />
+            <BuildCards item={ returnFilter } /> {/* loops throught the filtered items and return cards */}
         </div>
     </div>
   );

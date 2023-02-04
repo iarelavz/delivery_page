@@ -38,7 +38,7 @@
     input {
         margin-bottom: 2rem;
         border-radius: 10px;
-        width: 90%;
+        width: 100%;
     }
    
   /* Tab container  Styles */
@@ -76,9 +76,8 @@
     align-items: center;
     justify-content: space-between;
     font-weight: bold;
-    border: 1px solid var(--bordercolor);
+    box-shadow: 7.8px 15.5px 15.5px hsl(0deg 0% 0% / 0.26);
     border-radius: 10px;
-    
     padding-left: 0px;
     @media (max-width: 768px) {
       width: 90%;
@@ -91,12 +90,13 @@
     list-style: none;
     text-align: center;
     cursor: pointer;
-    transition: all 0.7s;
+    transition: all 0.1s;
+    
     
   }
    
   ul.nav li:first-child {
-    border-top-ri-radius: 10px;
+    border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
   }
@@ -112,8 +112,7 @@
   }
    
   ul.nav li.active {
-    background: var(--backgroundColor);
-    box-shadow: 7.8px 15.5px 15.5px hsl(0deg 0% 0% / 0.26);
+    border-bottom: 3px solid black;
     
   }
    

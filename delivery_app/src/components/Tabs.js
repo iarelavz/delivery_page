@@ -203,7 +203,7 @@ function Tabs() {
   return (
     <div className="tabcard-container">
     <div className="Tabs">
-        <input ClassId="searcbar" type='text' name='search' onChange={handleInputChange} />
+        <input className="searcbar" type='text' name='search' onChange={handleInputChange} />
         <ul className="nav">
             <TabNavItem title="Szállítási mód" id="tab1" activeTab={activeTab} setActiveTab={setActiveTab}/>
             <TabNavItem title="Csomag mérete" id="tab2" activeTab={activeTab} setActiveTab={setActiveTab}/>
@@ -226,22 +226,22 @@ function Tabs() {
             <TabContent id="tab2" activeTab={activeTab}>
                 <div className="infotext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet turpis diam. Phasellus consequat turpis nec ante elementum, in bibendum massa consectetur.</div>
                 <select name="size" onChange={handleOnChangeSize}>
-                    <option value={Size.ALL}>Csomagméret</option>
-                    <option value={Size.ALL}>ALL</option>
-                    <option value={Size.SMALL}>Small</option>
-                    <option value={Size.MEDIUM}>Medium</option>
-                    <option value={Size.BIG}>Big</option>
+                    <option value={Size.ALL}>Csomagméret</option> 
+                    <option value={Size.ALL}>{Size.ALL}</option>
+                    <option value={Size.SMALL}>{Size.SMALL}</option>
+                    <option value={Size.MEDIUM}>{Size.MEDIUM}</option>
+                    <option value={Size.BIG}>{Size.BIG}</option>
                 </select>    
             </TabContent>
             <TabContent id="tab3" activeTab={activeTab}>
                 <div className="infotext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet turpis diam. Phasellus consequat turpis nec ante elementum, in bibendum massa consectetur.</div>
                 <select name="curier" onChange={handleOnChangeCurier}>
-                    <option value={Curier.ALL}>Futárszolgálat</option>
-                    <option value={Curier.ALL}>ALL</option>
-                    <option value={Curier.FOX}>Foxpost</option>
-                    <option value={Curier.ROYAL}>Royal</option>
-                    <option value={Curier.DPD}>DPD</option>
-                    <option value={Curier.MPL}>MPL</option>
+                    <option value={Curier.ALL}>Futárszolgálat</option> 
+                    <option value={Curier.ALL}>{Curier.ALL}</option>
+                    <option value={Curier.FOX}>{Curier.FOX}</option>
+                    <option value={Curier.ROYAL}>{Curier.ROYAL}</option>
+                    <option value={Curier.DPD}>{Curier.DPD}</option>
+                    <option value={Curier.MPL}>{Curier.MPL}</option>
                 </select>  
             </TabContent>
         </div>

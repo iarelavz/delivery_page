@@ -5,7 +5,7 @@ function ActualDate(){
         ("0" + (today.getUTCMonth()+1)).slice(-2) + "." +
         ("0" + today.getUTCDate()).slice(-2) + "."
      return (
-     <div>
+     <div className="date-container">
          <div>{dateString}</div>
      </div>
      )

@@ -1,16 +1,41 @@
 
 
 :root {
-    --backgroundColor: lightgray;
+    --backgroundColor:  #dad5d2;
+    --secondaryBackgroundColor: #b4c1c5;
+    --fontColor: black;
+    --elementBackgroundcolor: #ae9789;
+    --elementColor: #5f7782;
+    --styleColorDark: #c78a44;
+    --styleColorLight: #d8b26e;
+
+
   }
 body{
     background-color: var(--backgroundColor);
     font-family: 'Roboto', sans-serif;
+    color: var(--fontColor)
 }
 
+    .main-container{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .date-container{
+        background-color: var(--elementColor);
+    }
+
+    input{
+        margin-bottom: 2rem;
+        width: 90%;
+
+
+    }
    .tabcard-container{
     display: flex;
-    justify-content: center;
+    align-items: center;
     flex-direction: column;
    }
 
@@ -18,11 +43,12 @@ body{
     width: 80%;
     height: auto;
     min-height: 200px;
-    background: white;
+    background: var(--elementColor);
     margin: 0.2rem auto 0.2rem;
     padding: 2rem 1rem;
-    color: black;
-    border-radius: 1%;
+    color: var(--fontColor);
+    display: flex;
+    flex-direction: column;
     @media (max-width: 769px) {
       padding: 2rem 0;
     }
@@ -31,12 +57,13 @@ body{
    
   /* Tab Navigation */
   ul.nav {
+    width: 90%;
     margin: 0 auto 2rem;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid #39A2DB;
+    font-weight: bold;
+    border: 1px solid var(--styleColorDark);
     border-radius: 1%;
     padding-left: 0px;
     @media (max-width: 768px) {
@@ -62,11 +89,11 @@ body{
   }
    
   ul.nav li:hover {
-    background: rgba(50, 224, 196, 0.15);
+    background: var(--styleColorLight);
   }
    
   ul.nav li.active {
-    background: #39A2DB;
+    background: var(--styleColorDark);
   }
    
   /* Tab Content Styles */
@@ -90,14 +117,13 @@ body{
     width: 100%;
     min-width: 15ch;
     max-width: 30ch;
-    border: 1px solid var(--select-border);
-    border-radius: 0.25em;
+    border: 1px solid var(--styleColorDark);
+    border-radius: 0.1em;
     padding: 0.25em 0.5em;
     font-size: 0.9rem;
     cursor: pointer;
     line-height: 1.1;
-    background-color: #fff;
-    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+    background-color: var(--backgroundColor);
     margin-top: 1.5rem;
   }
   
@@ -115,12 +141,13 @@ body{
 .card{
     max-height: 200px;
     max-width: 300px;
-    background-color: white;
-    border: solid 1px    white;
+    background-color: var(--secondaryBackgroundColor);
+    border: solid 1px    var(--elementColor);
     border-radius: 2%;
     padding: 20px;
     font-size: 0.8rem;
-   }
+    color: var(--fontColor);
+}
 
    .card:hover{
     box-shadow: 3.9px 7.8px 7.8px hsl(0deg 0% 0% / 0.38);
@@ -140,5 +167,4 @@ body{
 
    #card-date{
     font-size: 0.9rem;
-    background-color: gray;
    }

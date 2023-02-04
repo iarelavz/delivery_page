@@ -4,7 +4,7 @@ function BuildCards (props) {
     const  filteredList = props.item; 
     
     function dateString(inputDate) {
-            let outputDate = inputDate.getUTCHours() > 0 ? inputDate.getFullYear() + "." +
+            let outputDate = inputDate.getHours() > 2 ? inputDate.getFullYear() + "." +
                 ("0" + (inputDate.getMonth()+1)).slice(-2) + "." +
                 ("0" + inputDate.getDate()).slice(-2) + ". " +
                 ("0" + inputDate.getHours()).slice(-2) + ":" +
@@ -14,7 +14,7 @@ function BuildCards (props) {
                 ("0" + inputDate.getDate()).slice(-2) + ". ";
         return outputDate;
     }
-        
+        //TODO ha ures visszadni infot
     
         const filteredCards = filteredList.map(item => {
         return (

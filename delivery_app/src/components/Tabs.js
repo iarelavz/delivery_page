@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import TabNavItem from "./AllTabs/TabNawItem";
 import TabContent from "./AllTabs/TabContent";
-/* import SizeDrop from "./components/SizeDrop";
-import SearchBar from "./components/SearchBar";
-import Dropdown from "./components/Dropdown"; */
+/* import SizeDrop from "./components/SizeDrop"; */
+import SearchBar from "./SearchBar"
+/* import Dropdown from "./components/Dropdown" */; 
 import BuildCards from "./BuildCards";
 import ActualDate from "./ActualDate"
 
@@ -70,7 +70,6 @@ function Tabs() {
           size: Size.SMALL,
           curier: Curier.MPL,
           supply:Supply.CAC,
-
         },
         {
           date: new Date('2023-04-2'),
@@ -124,7 +123,7 @@ function Tabs() {
       {
           date: new Date('2023-04-06T10:00'), 
           deliveryMethod: DeliveryMethod.ONEHOUR,
-          size: Size.All,
+          size: Size.ALL,
           curier: Curier.NONE, 
           supply: Supply.STORE,
       },
@@ -150,6 +149,8 @@ function Tabs() {
     const [deliveryMethodFilter, setDeliveryMethodFilter] = useState(DeliveryMethod.ALL);
     const [inputFilter, setInputFilter] = useState('');
 
+    const [probi, setprobi] = useState('');
+
     //handles for inputs
     function handleOnChangeSize(event) {
         const { name, value } = event.target
@@ -172,27 +173,22 @@ function Tabs() {
     }
 
 
- /*    const handleSubmit = (term) =>{
+     const handleSubmit = (term) =>{
          console.log(term);
-         return term;
-    }; */
+         
+         setprobi(term);
+         console.log(probi)
 
-/*     function MySelect() {
-    return (
-      <select name="size" onChange={handleOnChange}>
-        <option value={Size.ALL}>ALL</option>
-        <option value={Size.SMALL}>Small</option>
-        <option value={Size.MEDIUM}>Medium</option>
-        <option value={Size.BIG}>Big</option>
-      </select>
-    )
-  } */
+    }; 
 
+  //filters the array with the states of each input
   function cardFilter(item) {
+    console.log("ez a ",probi)
     const sizeMatch = item.size == sizeFilter || sizeFilter == Size.ALL;
     const curierMatch = item.curier == curierFilter || curierFilter == Curier.ALL;
     const deiveryMethodMatch = item.deliveryMethod == deliveryMethodFilter || deliveryMethodFilter == DeliveryMethod.ALL;
-    const fuzzySearchMatch = item.curier.indexOf(inputFilter) !== -1 ; 
+    const fuzzySearchMatch = item.size.toLowerCase().indexOf(inputFilter.toLowerCase()) !== -1 || item.curier.toLowerCase().indexOf(inputFilter.toLowerCase()) !== -1 || item.deliveryMethod.toLowerCase().indexOf(inputFilter.toLowerCase()) !== -1 
+
     return sizeMatch && curierMatch && deiveryMethodMatch  && fuzzySearchMatch 
   }
 
@@ -200,11 +196,11 @@ function Tabs() {
   return (
     
     <div className="tabcard-container">
-       
+        <SearchBar onSubmit={handleSubmit}/>
         <div className="Tabs">
         < ActualDate />
             <div className="search-container">
-                <input className="searcbar" id="search" type='text' name='search' onChange={handleInputChange} />
+                <input placeholder="Keresés..." className="searcbar" id="search" type='text' name='search' onChange={handleInputChange} />
             </div>
             
             <ul className="nav">

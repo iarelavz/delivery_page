@@ -14,7 +14,7 @@ const Tabs = () => {
     ONEHOUR: '1 órás áruházi átvétel',
     TODAY: 'Aznapi kiszállítás', //TODO BP területén
     ONEDAY: '1 munkanapos kiszállítás',
-    ALL: 'all',
+    ALL: 'Mindegyik',
     PUP: 'Pick up Point'
    }
    const Size = {
@@ -109,19 +109,19 @@ const Tabs = () => {
       {
           date: new Date('2023-03-31'),
           deliveryMethod: DeliveryMethod.STORE,
-          size: Size.All,
+          size: Size.ALL,
           curier: Curier.NONE, 
           supply: Supply.CAC,
       },
       {
           date: new Date('2023-04-04'),
           deliveryMethod: DeliveryMethod.STORE,
-          size: Size.All,
+          size: Size.ALL,
           curier: Curier.NONE, 
           supply: Supply.CAC,
       },
       {
-          date: new Date('2023-04-06'), //TODO óra is
+          date: new Date('2023-04-06T10:00'), 
           deliveryMethod: DeliveryMethod.ONEHOUR,
           size: Size.All,
           curier: Curier.NONE, 
@@ -135,7 +135,7 @@ const Tabs = () => {
           supply: Supply.STORE,
       },
       {
-          date: new Date('2023-04-03'), //TODO óra
+          date: new Date('2023-04-03T15:00'), 
           deliveryMethod: DeliveryMethod.ONEDAY,
           size: Size.All,
           curier: Curier.NONE, 
@@ -226,12 +226,12 @@ const Tabs = () => {
           <option value={DeliveryMethod.ALL}>{DeliveryMethod.ALL}</option>
           <option value={DeliveryMethod.HOME}>{DeliveryMethod.HOME}</option>
           <option value={DeliveryMethod.PUP}>{DeliveryMethod.PUP}</option>
-          <option value={DeliveryMethod.STORE}>{DeliveryMethod.PUP}</option>
+          <option value={DeliveryMethod.STORE}>{DeliveryMethod.STORE}</option>
           <option value={DeliveryMethod.ONEHOUR}>{DeliveryMethod.ONEHOUR}</option>
           <option value={DeliveryMethod.TODAY}>{DeliveryMethod.TODAY}</option>
           <option value={DeliveryMethod.ONEDAY}>{DeliveryMethod.ONEDAY}</option>
         </select>
-        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet turpis diam. Phasellus consequat turpis nec ante elementum, in bibendum massa consectetur.</div>
+        <div className="infotext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet turpis diam. Phasellus consequat turpis nec ante elementum, in bibendum massa consectetur.</div>
         </TabContent>
         <TabContent id="tab2" activeTab={activeTab}>
         <select name="size" onChange={handleOnChangeSize}>

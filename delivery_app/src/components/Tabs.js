@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import TabNavItem from "./AllTabs/TabNawItem";
 import TabContent from "./AllTabs/TabContent";
-/* import SizeDrop from "./components/SizeDrop"; */
-import SearchBar from "./SearchBar"
-/* import Dropdown from "./components/Dropdown" */; 
+import SizeDrop from "./SizeDrop";
+import SearchBar from "./SearchBar" 
 import BuildCards from "./BuildCards";
 import ActualDate from "./ActualDate"
 
@@ -149,7 +148,7 @@ function Tabs() {
     const [deliveryMethodFilter, setDeliveryMethodFilter] = useState(DeliveryMethod.ALL);
     const [inputFilter, setInputFilter] = useState('');
 
-    const [probi, setprobi] = useState('');
+    const [searchInput, setSearchInput] = useState('');
 
     //handles for inputs
     function handleOnChangeSize(event) {
@@ -173,21 +172,22 @@ function Tabs() {
     }
 
 
-     const handleSubmit = (term) =>{
+     const handleSearchSubmit = (term) =>{
          console.log(term);
-         
-         setprobi(term);
-         console.log(probi)
-
+         setSearchInput(term);
     }; 
+
+    const handleSubmit = (term) =>{
+        console.log(term);
+        setSearchInput(term);
+   };
 
   //filters the array with the states of each input
   function cardFilter(item) {
-    console.log("ez a ",probi)
     const sizeMatch = item.size == sizeFilter || sizeFilter == Size.ALL;
     const curierMatch = item.curier == curierFilter || curierFilter == Curier.ALL;
     const deiveryMethodMatch = item.deliveryMethod == deliveryMethodFilter || deliveryMethodFilter == DeliveryMethod.ALL;
-    const fuzzySearchMatch = item.size.toLowerCase().indexOf(inputFilter.toLowerCase()) !== -1 || item.curier.toLowerCase().indexOf(inputFilter.toLowerCase()) !== -1 || item.deliveryMethod.toLowerCase().indexOf(inputFilter.toLowerCase()) !== -1 
+    const fuzzySearchMatch = item.size.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1 || item.curier.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1 || item.deliveryMethod.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1 
 
     return sizeMatch && curierMatch && deiveryMethodMatch  && fuzzySearchMatch 
   }
@@ -196,11 +196,12 @@ function Tabs() {
   return (
     
     <div className="tabcard-container">
-        <SearchBar onSubmit={handleSubmit}/>
+        
+        <SizeDrop onChange={handleSubmit}/>
         <div className="Tabs">
         < ActualDate />
             <div className="search-container">
-                <input placeholder="Keresés..." className="searcbar" id="search" type='text' name='search' onChange={handleInputChange} />
+            <SearchBar onSubmit={handleSearchSubmit}/> 
             </div>
             
             <ul className="nav">

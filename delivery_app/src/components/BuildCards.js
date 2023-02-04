@@ -20,9 +20,7 @@ function BuildCards (props) {
     
     let filteredCards ;
     if (filteredList.length == 0) {
-        filteredCards = <div>nono</div>;
-
-        
+        filteredCards = <div className="error-card" >Nincs a találat a keresési feltételekre!</div>; 
     } else {
          filteredCards = filteredList.map(item => { //loops throught the filtered items and return cards
             return (

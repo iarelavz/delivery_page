@@ -189,6 +189,20 @@
     font-weight: 200;
    }
 
+   .error-card{
+    max-height: 200px;
+    max-width: 200px;
+    background-color: var(--elementColor);
+    border: solid 1px    var(--elementColor);
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 0.8rem;
+    color: var(--fontColor);
+    box-shadow: 3.9px 7.8px 7.8px hsl(0deg 0% 0% / 0.38);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
    #card-date{
     font-size: 0.9rem;
    }

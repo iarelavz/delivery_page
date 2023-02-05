@@ -126,7 +126,7 @@ function Tabs() {
           <TabContent id="tab3" activeTab={activeTab}>
             <div className="infotext">
               Áruháznk több piacvezető futárszolgálattal áll szerződésben. A
-              megrendelt terméket a Foxpost, Royal, DPD MPL futárszolgálatok
+              megrendelt terméket a Foxpost, Royal, DPD, MPL futárszolgálatok
               viszik házhoz.
             </div>
             <select name="curier" onChange={handleOnChangeCurier}>

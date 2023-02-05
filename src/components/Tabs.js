@@ -82,7 +82,7 @@ function Tabs() {
         <div className="outlet">
           <TabContent id="tab1" activeTab={activeTab}>
             <div className="infotext">
-              A választott csomagot kérheti házhoz, vagy csomagpontra, veheti át
+              A választott csomagot kérheti házhoz, csomagpontra, vagy átveheti 
               áruházaink egyikében. Sürgős esetben akár aznapi kiszállítást és 1
               órás áruházi átvételt is biztosítunk.
             </div>

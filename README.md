@@ -1,4 +1,13 @@
-# Getting Started with Create React App
+App components:
+    App.js -main component
+    Tabs.js - renders the tabs and filters the data
+        Tabconent.js - renders active tab content
+        TabNawitem.js - navigates to clicked tab
+    SearchBar.js - searchbar management component
+    Const.js - data 
+    BuildCard.js - builds the info cards
+    ActualDate.js - renders the actual date
+
 
 ## Available Scripts
 

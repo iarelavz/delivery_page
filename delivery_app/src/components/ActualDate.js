@@ -1,14 +1,10 @@
+import moment from "moment";
+
+
 function ActualDate(){  //Outputs the Actual date
-    let today = new Date();
-    let dateString =
-        today.getUTCFullYear() + "." +
-        ("0" + (today.getUTCMonth()+1)).slice(-2) + "." +
-        ("0" + today.getUTCDate()).slice(-2) + "."
-     return (
-     <div className="date-container">
-         <div>{dateString}</div>
-     </div>
-     )
+    const dateString = moment().format('YYYY. MM. DD.' );
+     
+    return <div className="date-container">{dateString}</div>
  }
  
- export default ActualDate;
+ export default ActualDate; 

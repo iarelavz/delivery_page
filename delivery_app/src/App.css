@@ -8,41 +8,40 @@
   }
 
     body{
-        background-color: var(--backgroundColor);
-        font-family: 'Roboto', sans-serif;
-        color: var(--fontColor)
+      background-color: var(--backgroundColor);
+      font-family: 'Roboto', sans-serif;
+      color: var(--fontColor)
     }
 
   /* Date elementStyles */
 
     .date-container {
-        font-size: 1.5rem;
-        font-weight: bold;
-        border: 1px solid var(white);
-        border-radius: 10px;
-        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-        margin-bottom: 1.2rem;
-        box-shadow: 7.8px 15.7px 15.7px hsl(0deg 0% 0% / 0.26);
-        display: flex;
-        justify-content: center;
-        text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      margin-left: 1.2rem;
+      display: flex;
+      border-bottom: 2px solid black;
+      justify-content: center;
+      text-align: center;
     }
 
     
   /* Searc input  Styles */
     
     .searc-container {
-        display: flex;
-        flex-direction: row
+      display: flex;
+      flex-direction: row
     }
     .searchbar{
-        margin-bottom: 2rem;
-        border-radius: 10px;
-        width: 100%;
+      margin-bottom: 2rem;
+      border-radius: 10px;
+      width: 100%;
     }
 
     input{
       outline: none;
+      padding: 0.4rem;
     }
 
     input:focus{
@@ -162,7 +161,13 @@
     border-radius: 10px;
     margin-top: 1.5rem;
     background-color: var(--elementColor);
+    outline: none;
   }
+
+  select:focus{
+    box-shadow: 7.8px 15.7px 15.7px hsl(0deg 0% 0% / 0.26);
+  }
+
   
   /* Card Styles */
   .card-container {

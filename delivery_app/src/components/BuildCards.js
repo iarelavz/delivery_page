@@ -1,18 +1,15 @@
+import moment from "moment";
+
 
 function BuildCards (props) {
     const  filteredList = props.item; 
-    
+
     function dateString(inputDate) { //transform to utc date and keeps only the date
-            let outputDate = inputDate.getHours() > 2 ? inputDate.getFullYear() + "." +
-                ("0" + (inputDate.getMonth()+1)).slice(-2) + "." +
-                ("0" + inputDate.getDate()).slice(-2) + ". " +
-                ("0" + inputDate.getHours()).slice(-2) + ":" +
-                ("0" + inputDate.getMinutes()).slice(-2) 
-                : inputDate.getFullYear() + "." +
-                ("0" + (inputDate.getMonth()+1)).slice(-2) + "." +
-                ("0" + inputDate.getDate()).slice(-2) + ". ";
-        return outputDate;
-    }
+            let outputDate = inputDate.getHours() > 2 ?  moment(inputDate).format('YYYY. MM. DD. H:mm' )
+                : moment(inputDate).format('YYYY. MM. DD.' )
+                
+            return outputDate;
+        }
         
     let filteredCards ;
     if (filteredList.length == 0) {

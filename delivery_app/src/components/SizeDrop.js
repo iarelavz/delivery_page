@@ -12,17 +12,20 @@ function SizeDrop({ onChange }){
     
     function handleOnChangeSize(event) {
         const { name, value } = event.target
+
         console.log(name, value);        
-        console.log(filter);
-        console.log("bvvv", value)
+        console.log("a state", filter);
+        
+        console.log("a value:", value)
         setFilter(value);
-        console.log(filter)
-        onChange(filter)
+        console.log("state set utan:", filter)
+        onChange(value)
       }
 
 
     return (
-       
+          <>
+          <h1>{filter}</h1>
              <select name="size" onChange={handleOnChangeSize}>
                         <option value={Size.ALL}>Csomagméret</option> 
                         <option value={Size.ALL}>{Size.ALL}</option>
@@ -30,7 +33,7 @@ function SizeDrop({ onChange }){
                         <option value={Size.MEDIUM}>{Size.MEDIUM}</option>
                         <option value={Size.BIG}>{Size.BIG}</option>
                     </select> 
-
+                    </>
         )
 }
 

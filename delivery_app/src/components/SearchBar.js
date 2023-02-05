@@ -2,8 +2,6 @@ import { useState } from "react";
 
 function SearchBar({ onSubmit}){  //get the input and sends to tab component to do the search
     const [term, setTerm] = useState('');
-     
-    
     const handleFormSubmit = (event) => {
         event.preventDefault();
 
@@ -14,11 +12,13 @@ function SearchBar({ onSubmit}){  //get the input and sends to tab component to 
         setTerm(event.target.value);
     }
 
-    return (<div>
+    return (
+            <div>
                 <form onSubmit={handleFormSubmit}>
                     <input  className="searchbar" placeholder="Keresés... nyomj enter-t" value={term} onChange={handleChange}/>
                 </form>
-            </div>)
+            </div>
+    )
 }
 
 export default SearchBar;

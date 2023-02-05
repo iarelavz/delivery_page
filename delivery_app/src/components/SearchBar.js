@@ -16,7 +16,7 @@ function SearchBar({ onSubmit}){  //get the input and sends to tab component to 
 
     return (<div>
                 <form onSubmit={handleFormSubmit}>
-                    <input  className="searchbar" placeholder="Keresés..." value={term} onChange={handleChange}/>
+                    <input  className="searchbar" placeholder="Keresés... nyomj enter-t" value={term} onChange={handleChange}/>
                 </form>
             </div>)
 }

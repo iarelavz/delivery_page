@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function SearchBar({ onSubmit}){
+function SearchBar({ onSubmit}){  //get the input and sends to tab component to do the search
     const [term, setTerm] = useState('');
      
     

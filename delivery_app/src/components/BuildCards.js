@@ -1,5 +1,4 @@
 
-
 function BuildCards (props) {
     const  filteredList = props.item; 
     
@@ -14,10 +13,7 @@ function BuildCards (props) {
                 ("0" + inputDate.getDate()).slice(-2) + ". ";
         return outputDate;
     }
-        //TODO ha ures visszadni infot
-    
         
-    
     let filteredCards ;
     if (filteredList.length == 0) {
         filteredCards = <div className="error-card" >Nincs a találat a keresési feltételekre!</div>; 

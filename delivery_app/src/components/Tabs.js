@@ -7,7 +7,7 @@ import BuildCards from "./BuildCards";
 import ActualDate from "./ActualDate"
 
 function Tabs() {
-  
+  //ENUMS for easy data handle
   const DeliveryMethod = {
     HOME: 'Házhozszállítás',
     STORE: 'Hagyományos áruházi átvétel',
@@ -141,12 +141,12 @@ function Tabs() {
           supply: Supply.STORE,
       },
    ]
+
    //states for input and tabs
     const [activeTab, setActiveTab] = useState("tab1");
     const [sizeFilter, setSizeFilter] = useState(Size.ALL);
     const [curierFilter, setCurierFilter] = useState(Curier.ALL);
     const [deliveryMethodFilter, setDeliveryMethodFilter] = useState(DeliveryMethod.ALL);
-    const [inputFilter, setInputFilter] = useState('');
 
     const [searchInput, setSearchInput] = useState('');
 
@@ -154,56 +154,47 @@ function Tabs() {
     function handleOnChangeSize(event) {
         const { name, value } = event.target
         setSizeFilter(value);
-    }
+    };
 
     function handleOnChangeCurier(event) {
         const { name, value } = event.target
         setCurierFilter(value);
-    }
+    };
 
     function handleOnChangeDelyveryMethod(event) {
         const { name, value } = event.target
         setDeliveryMethodFilter(value);
-    }
+    };
 
-    function handleInputChange(event) {
-        const { name, value } = event.target
-        setInputFilter(value);
-    }
-
-
-     const handleSearchSubmit = (term) =>{
-         console.log(term);
+     function handleSearchSubmit(term){
          setSearchInput(term);
     }; 
 
-    const handleSubmit = (term) =>{
+    function handleSubmit(term){
         console.log(term);
         setSearchInput(term);
    };
 
-  //filters the array with the states of each input
-  function cardFilter(item) {
-    const sizeMatch = item.size == sizeFilter || sizeFilter == Size.ALL;
-    const curierMatch = item.curier == curierFilter || curierFilter == Curier.ALL;
-    const deiveryMethodMatch = item.deliveryMethod == deliveryMethodFilter || deliveryMethodFilter == DeliveryMethod.ALL;
-    const fuzzySearchMatch = item.size.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1 || item.curier.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1 || item.deliveryMethod.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1 
+    //filters the array with the states of each input
+    function cardFilter(item) {
+        const sizeMatch = item.size == sizeFilter || sizeFilter == Size.ALL;
+        const curierMatch = item.curier == curierFilter || curierFilter == Curier.ALL;
+        const deiveryMethodMatch = item.deliveryMethod == deliveryMethodFilter || deliveryMethodFilter == DeliveryMethod.ALL;
+        const fuzzySearchMatch = item.size.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1 || item.curier.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1 || item.deliveryMethod.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1 
 
-    return sizeMatch && curierMatch && deiveryMethodMatch  && fuzzySearchMatch 
-  }
+        return sizeMatch && curierMatch && deiveryMethodMatch  && fuzzySearchMatch;
+    }
 
-  const returnFilter = data.filter(item => cardFilter(item)) 
+    const returnFilter = data.filter(item => cardFilter(item)) 
   return (
     
     <div className="tabcard-container">
-        
         <SizeDrop onChange={handleSubmit}/>
         <div className="Tabs">
         < ActualDate />
             <div className="search-container">
             <SearchBar onSubmit={handleSearchSubmit}/> 
             </div>
-            
             <ul className="nav">
                 <TabNavItem title="Szállítási mód" id="tab1" activeTab={activeTab} setActiveTab={setActiveTab}/>
                 <TabNavItem title="Csomag mérete" id="tab2" activeTab={activeTab} setActiveTab={setActiveTab}/>

@@ -21,11 +21,11 @@
         border: 1px solid var(white);
         border-radius: 10px;
         padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-        margin-bottom: 1rem;
+        margin-bottom: 1.2rem;
         box-shadow: 7.8px 15.7px 15.7px hsl(0deg 0% 0% / 0.26);
         display: flex;
         justify-content: center;
-        align-items: center;
+        text-align: center;
     }
 
     
@@ -40,7 +40,15 @@
         border-radius: 10px;
         width: 100%;
     }
-   
+
+    input{
+      outline: none;
+    }
+
+    input:focus{
+      box-shadow: 7.8px 15.7px 15.7px hsl(0deg 0% 0% / 0.26);
+    }
+
   /* Tab container  Styles */
 
     .tabcard-container {
@@ -85,7 +93,6 @@
   @media only screen and (max-width: 600px) {
     ul.nav{
       font-size: 12px;
-      width: 60%;
     }
     .infotext{
       font-size: 12px;
@@ -208,6 +215,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
    }
    #card-date{
     font-size: 0.9rem;
